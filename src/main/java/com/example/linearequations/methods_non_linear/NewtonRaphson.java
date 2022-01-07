@@ -35,11 +35,12 @@ public class NewtonRaphson implements Solve {
 
     // Function to find the root
     private void newtonRaphson(double x, int itr, double e) {
-      ///new  
-        if( derivativeFunc(fun,x)==0){
+        ///new
+        if( derivativeFunc(x)==0){
                this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
-                return;
-            }
+               return;
+        }
+
         /////
         double h = BigDecimal.valueOf(func(x) / derivativeFunc(x))
                 .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
@@ -69,6 +70,7 @@ public class NewtonRaphson implements Solve {
         this.stringBuilder.append("The value of the final root is: ").append(x);
         this.finalAnswer.append("The value of the final root = ").append(x);
 
+        // For the plot :)
         this.values = new double[4];
         this.values[0] = c;
         this.values[1] = derivative;

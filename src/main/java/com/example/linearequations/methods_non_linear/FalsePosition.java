@@ -39,6 +39,7 @@ public class FalsePosition implements Solve {
             return;
         }
 
+        // For the plot
         this.xL.add(xl);
         this.xU.add(xu);
 
@@ -66,6 +67,8 @@ public class FalsePosition implements Solve {
             } else {
                 xl = xr;
             }
+
+            // For the plot
             this.xL.add(xl);
             this.xU.add(xu);
 
@@ -73,7 +76,7 @@ public class FalsePosition implements Solve {
             flag = eps > e;
         }
         // Final Answer -- xr
-        this.xR = xr;
+        this.xR = xr;  // For the plot
         this.stringBuilder.append("The value of final root is: ").append(xr);
         this.finalAnswer.append("The value of final root = ").append(xr);
     }

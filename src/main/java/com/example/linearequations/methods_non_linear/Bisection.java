@@ -37,8 +37,10 @@ public class Bisection implements Solve {
             return;
         }
 
+        // For the plot
         this.xL.add(xl);
         this.xU.add(xu);
+
         double xr = 0, xrOld;
         boolean flag = true;
         while (flag && iteration < itr + 1) {
@@ -63,6 +65,8 @@ public class Bisection implements Solve {
             } else {
                 xl = xr;
             }
+
+            // For the plot
             this.xL.add(xl);
             this.xU.add(xu);
             double eps = bigDecimal.setScale(precision, RoundingMode.HALF_UP).doubleValue();
@@ -70,7 +74,7 @@ public class Bisection implements Solve {
 
         }
         // Final Answer -- xr
-        this.xR = xr;
+        this.xR = xr;  // For the plot
         this.stringBuilder.append("After Bisection Method The final root = ").append(xr);
         this.finalAnswer = new StringBuilder("The Value of the final root = ").append(xr);
 

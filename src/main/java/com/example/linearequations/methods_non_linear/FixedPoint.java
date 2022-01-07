@@ -30,7 +30,9 @@ public class FixedPoint implements Solve {
     }
 
     private void calculate(double x, int itr, double epsilon) {
+        // For the plot
         this.start = x;
+
         int i = 0;
         double p, xOld = 0;
         //p = g(fun,x);
@@ -61,7 +63,7 @@ public class FixedPoint implements Solve {
         }
 
         // Final Answer
-        xR = x;
+        xR = x;  // For the plot
         this.stringBuilder.append("After Fixed Point Method The final root = ").append(x);
         this.finalAnswer.append("The value of the final root = ").append(x);
     }

@@ -33,10 +33,11 @@ public class Secant implements Solve {
 
     private void secantMethod(double x0, double x1, double conv_level, int itr) {
         //new
-        if((expression(f,x0) - expression(f,x1))==0){
-                    System.out.println("\nThe Function Diverge!\nTry better initial guess :))");
-                    return;
-                }
+        if((expression(x0) - expression(x1))==0){
+            this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+            return;
+        }
+
         ////
         // For the plot
         this.values.add(x0);

@@ -57,9 +57,6 @@ public class Secant implements Solve {
                 x0 = x1;
                 x1 = x2;
                 iterations++;
-                if (expression(x1) * expression(x2) == 0) {
-                    break;
-                }
             } while (Math.abs((x1 - x0) / x1) * 100 >= conv_level && iterations <= itr - 1);
 
             double xr = BigDecimal.valueOf(x1)

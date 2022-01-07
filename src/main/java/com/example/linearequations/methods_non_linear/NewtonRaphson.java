@@ -42,10 +42,12 @@ public class NewtonRaphson implements Solve {
         double derivative = 0, val = 0, startX = x;
         while ((Math.abs(h / x) * 100) >= e && i <= itr) {
             derivative = derivativeFunc(x);
+
             val = func(x);
             h = BigDecimal.valueOf(val / derivative)
                     .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
             x = BigDecimal.valueOf(x - h).setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
+
             this.stringBuilder.append("Iteration #").append(i).append(": X").append(i).append(" = ")
                     .append(x).append("\nAbsolute Error = ").append(BigDecimal.valueOf((Math.abs(h / x) * 100))
                             .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())

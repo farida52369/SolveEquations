@@ -128,23 +128,9 @@ public class HelloController implements Initializable {
                 break;
             case "Gauss Seidil":
             case "Jacobi Iteration":
-                labelWarn1.setTextFill(Color.RED);
-                labelWarn2.setTextFill(Color.RED);
-                labelWarn3.setTextFill(Color.RED);
-
-                initialGuess.setPrefWidth(120);
                 initialGuess.setText("0,0,0,0");
-                numOfIteration.setPrefWidth(90);
-                numOfIteration.setText("10");
-                epsilon.setPrefWidth(150);
-                epsilon.setText("0.00001");
-                epsilonLabel.setFont(new Font("System", 35));
-                myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
-                        initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
-                myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
-                        numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
+                decoration();
+                break;
 
                 /*
                  * Pattern decimalPattern = Pattern.compile("-?\\d*(\\.\\d{0,2})?");
@@ -161,43 +147,13 @@ public class HelloController implements Initializable {
             case "Bisection":
             case "False-Position":
             case "Secant Method":
-                labelWarn1.setTextFill(Color.RED);
-                labelWarn2.setTextFill(Color.RED);
-                labelWarn3.setTextFill(Color.RED);
-
-                initialGuess.setPrefWidth(120);
                 initialGuess.setText("0,0");
-                numOfIteration.setPrefWidth(90);
-                numOfIteration.setText("10");
-                epsilon.setPrefWidth(150);
-                epsilon.setText("0.00001");
-                epsilonLabel.setFont(new Font("System", 35));
-                myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
-                        initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
-                myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
-                        numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
+                decoration();
                 break;
             case "Fixed point":
             case "Newton-Raphson":
-                labelWarn1.setTextFill(Color.RED);
-                labelWarn2.setTextFill(Color.RED);
-                labelWarn3.setTextFill(Color.RED);
-
-                initialGuess.setPrefWidth(120);
                 initialGuess.setText("0");
-                numOfIteration.setPrefWidth(90);
-                numOfIteration.setText("10");
-                epsilon.setPrefWidth(150);
-                epsilon.setText("0.00001");
-                epsilonLabel.setFont(new Font("System", 35));
-                myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
-                        initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
-                myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
-                        numOfIteration, labelWarn2, numOfIterationLabel,
-                        epsilonLabel, epsilon, labelWarn3);
+                decoration();
                 break;
             default:
                 myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
@@ -207,6 +163,25 @@ public class HelloController implements Initializable {
         }
 
         System.out.println(myChoiceBox.getValue());
+    }
+
+    private void decoration() {
+        labelWarn1.setTextFill(Color.RED);
+        labelWarn2.setTextFill(Color.RED);
+        labelWarn3.setTextFill(Color.RED);
+
+        initialGuess.setPrefWidth(120);
+        numOfIteration.setPrefWidth(90);
+        numOfIteration.setText("10");
+        epsilon.setPrefWidth(150);
+        epsilon.setText("0.00001");
+        epsilonLabel.setFont(new Font("System", 35));
+        myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
+                initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
+                epsilonLabel, epsilon, labelWarn3);
+        myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
+                numOfIteration, labelWarn2, numOfIterationLabel,
+                epsilonLabel, epsilon, labelWarn3);
     }
 
     private static String expression;

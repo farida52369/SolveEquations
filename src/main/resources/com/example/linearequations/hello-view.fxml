@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.linearequations.HelloController">
+   <children>
+      <Label layoutX="240.0" layoutY="14.0" text="Solving Linear Equations" textFill="#ae0909">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="94.0" text="Method To Solve By: ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="myChoiceBox" layoutX="256.0" layoutY="95.0" prefWidth="150.0" />
+      <Label layoutX="432.0" layoutY="94.0" text="Precision:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="precision" layoutX="547.0" layoutY="87.0" prefHeight="36.0" prefWidth="76.0" text="4">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <Line endX="557.0" endY="62.5" fill="#ae0909" layoutX="48.0" layoutY="-11.0" startX="196.5" startY="62.5" stroke="#ae0909" strokeWidth="2.0" />
+      <Label layoutX="75.0" layoutY="311.0" text="Input Equations:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="myInput" layoutX="331.0" layoutY="311.0" prefHeight="220.0" prefWidth="474.0" promptText="Enter Equations Wanna Solve ....">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="calculateButton" layoutX="365.0" layoutY="641.0" mnemonicParsing="false" onAction="#calculate" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: skyblue; -fx-background-radius: 7px;" text="Calculate">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="639.0" layoutY="94.0" text="Time:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="time" layoutX="708.0" layoutY="89.0" prefHeight="36.0" prefWidth="107.0" promptText="in Ns">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Label layoutX="14.0" layoutY="358.0" text="Equations must be in the form:" textFill="#8a0707">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="414.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="424.0" text="ax1+bx2=c">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="424.0" text="dx1+nx2=q">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="818.0" layoutY="95.0" text="Ns">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="400.0" text="For Linear:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="467.0" text="For non-Linear:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="496.0" prefHeight="21.0" prefWidth="261.0" text="e^(x)+sin(x)+cos(x)+x^b=0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="finalOutput" layoutX="341.0" layoutY="543.0" prefHeight="33.0" prefWidth="454.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="156.0" layoutX="102.0" layoutY="400.0" startX="-100.0" />
+      <Line endX="155.0" layoutX="103.0" layoutY="451.0" startX="-100.0" />
+      <Line endX="-99.5" endY="50.0" layoutX="358.0" layoutY="401.0" startX="-100.0" />
+      <Line endX="-99.5" endY="50.0" layoutX="102.0" layoutY="401.0" startX="-100.0" />
+      <Line endX="188.0" layoutX="104.0" layoutY="467.0" startX="-100.0" />
+      <Line endX="188.0" layoutX="104.0" layoutY="517.0" startX="-100.0" />
+      <Line endX="-99.5" endY="50.5" layoutX="392.0" layoutY="466.0" startX="-100.0" />
+      <Line endX="-99.5" endY="50.5" layoutX="103.0" layoutY="465.0" startX="-99.5" startY="2.5" />
+   </children>
+</AnchorPane>

@@ -274,8 +274,9 @@ public class HelloController implements Initializable {
                 || methodUsed.equals("Fixed point") || methodUsed.equals("Newton-Raphson")
                 || methodUsed.equals("Secant Method")) {
 
-            String equation = myInput.getText();
-            String[] equ = equation.split("=");
+            String[] equation = myInput.getText().split("\n");
+
+            String[] equ = equation[0].split("=");
             if (equ.length == 2 && (equ[1].equals("0") || equ[1].equals("0.0"))) {
                 try {
                     this.setExpression(equ[0]);

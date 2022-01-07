@@ -35,11 +35,11 @@ public class NewtonRaphson implements Solve {
 
     // Function to find the root
     private void newtonRaphson(double x, int itr, double e) {
-      ///new  
-        if(derivFunc(fun,x)==0){
+        ///new
+        if(derivativeFunc(func(x)) == 0){
                this.stringBuilder.append("The function doesn't converge. Try another initial guess!!");
                 return;
-            }
+        }
         /////
         double h = BigDecimal.valueOf(func(x) / derivativeFunc(x))
                 .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();

@@ -21,7 +21,7 @@ public class Plot {
         yAxis.setLabel("Y");
 
         final LineChart<Number, Number> lineChart =
-                new LineChart<Number, Number>(xAxis, yAxis);
+                new LineChart<>(xAxis, yAxis);
 
         lineChart.setTitle("f(x) and Boundary Functions");
 
@@ -38,7 +38,7 @@ public class Plot {
             double v = (Math.abs(xRight) + Math.abs(xLeft)) / (size + 300);
             while (j < xLeft) {
                 val = getFunctionValue.parseFun(j);
-                series1.getData().add(new XYChart.Data<Number, Number>(j, val));
+                series1.getData().add(new XYChart.Data<>(j, val));
                 Y.add(val);
                 j += v;
             }
@@ -91,7 +91,7 @@ public class Plot {
         yAxis.setLabel("Y");
 
         final LineChart<Number, Number> lineChart =
-                new LineChart<Number, Number>(xAxis, yAxis);
+                new LineChart<>(xAxis, yAxis);
 
         lineChart.setTitle("g(x) and Boundary Functions");
 
@@ -145,7 +145,7 @@ public class Plot {
         yAxis.setLabel("Y");
 
         final LineChart<Number, Number> lineChart =
-                new LineChart<Number, Number>(xAxis, yAxis);
+                new LineChart<>(xAxis, yAxis);
 
         lineChart.setTitle("f(x) and Boundary Functions");
 
@@ -197,7 +197,7 @@ public class Plot {
         yAxis.setLabel("Y");
 
         final LineChart<Number, Number> lineChart =
-                new LineChart<Number, Number>(xAxis, yAxis);
+                new LineChart<>(xAxis, yAxis);
 
         lineChart.setTitle("f(x) and Boundary Functions");
 

@@ -21,7 +21,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-import net.objecthunter.exp4j.ValidationResult;
 
 import java.io.IOException;
 import java.net.URL;
@@ -203,7 +202,7 @@ public class HelloController implements Initializable {
         // Set Text Final Output on new Calculation
         finalOutput.setText("");
         // Remove Warning
-        myPane.getChildren().remove(inputWarn5);
+        myPane.getChildren().removeAll(inputWarn5, inputWarn4);
 
         String methodUsed = myChoiceBox.getValue();
         System.out.println("My Choice: " + methodUsed);
@@ -274,66 +273,75 @@ public class HelloController implements Initializable {
         } else if (methodUsed.equals("Bisection") || methodUsed.equals("False-Position")
                 || methodUsed.equals("Fixed point") || methodUsed.equals("Newton-Raphson")
                 || methodUsed.equals("Secant Method")) {
-            this.setExpression(myInput.getText());
 
-            try {
-                Expression expression = new ExpressionBuilder(getExpression())
-                        .variable("x")
-                        .build();
-                int precision_val = Integer.parseInt(precision.getText());
-                this.setPre(precision_val);
-                String[] val = initialGuess.getText().split(",");
+            String equation = myInput.getText();
+            String[] equ = equation.split("=");
+            if (equ.length == 2 && (equ[1].equals("0") || equ[1].equals("0.0"))) {
+                try {
+                    this.setExpression(equ[0]);
+                    Expression expression = new ExpressionBuilder(getExpression())
+                            .variable("x")
+                            .build();
+                    int precision_val = Integer.parseInt(precision.getText());
+                    this.setPre(precision_val);
+                    String[] val = initialGuess.getText().split(",");
 
-                double[] initial_guess = new double[2];
-                for (int i = 0; i < 2; i++)
-                    if (val.length > i)
-                        initial_guess[i] = Double.parseDouble(val[i]);
-                int num_of_iteration = Integer.parseInt(numOfIteration.getText());
-                double eps = Double.parseDouble(epsilon.getText());
+                    double[] initial_guess = new double[2];
+                    for (int i = 0; i < 2; i++)
+                        if (val.length > i)
+                            initial_guess[i] = Double.parseDouble(val[i]);
+                    int num_of_iteration = Integer.parseInt(numOfIteration.getText());
+                    double eps = Double.parseDouble(epsilon.getText());
 
-                Plot plot = new Plot();
-                switch (methodUsed) {
-                    case "Bisection":
-                        Bisection bisection = new Bisection(initial_guess[0], initial_guess[1], eps, num_of_iteration);
-                        solution = bisection;
-                        LineChart = plot.draw(bisection.getXL(), bisection.getXU(), bisection.getXR());
-                        break;
-                    case "False-Position":
-                        FalsePosition falsePosition = new FalsePosition(initial_guess[0],
-                                initial_guess[1], eps, num_of_iteration);
-                        solution = falsePosition;
-                        LineChart = plot.draw(falsePosition.getXL(), falsePosition.getXU(), falsePosition.getXR());
-                        break;
-                    case "Fixed point":
-                        this.setExpression(myInput.getText() + "+x");
-                        FixedPoint fixedPoint = new FixedPoint(initial_guess[0], num_of_iteration, eps);
-                        solution = fixedPoint;
-                        LineChart = plot.draw(fixedPoint.get_xR(), fixedPoint.getStart());
-                        break;
-                    case "Newton-Raphson":
-                        NewtonRaphson newtonRaphson = new NewtonRaphson(initial_guess[0], num_of_iteration, eps);
-                        solution = newtonRaphson;
-                        LineChart = plot.draw(newtonRaphson.getValues());
-                        break;
-                    case "Secant Method":
-                        Secant secant = new Secant(initial_guess[0], initial_guess[1], eps, num_of_iteration);
-                        solution = secant;
-                        LineChart = plot.draw(secant.getValues());
-                        break;
+                    Plot plot = new Plot();
+                    switch (methodUsed) {
+                        case "Bisection":
+                            Bisection bisection = new Bisection(initial_guess[0], initial_guess[1], eps, num_of_iteration);
+                            solution = bisection;
+                            LineChart = plot.draw(bisection.getXL(), bisection.getXU(), bisection.getXR());
+                            break;
+                        case "False-Position":
+                            FalsePosition falsePosition = new FalsePosition(initial_guess[0],
+                                    initial_guess[1], eps, num_of_iteration);
+                            solution = falsePosition;
+                            LineChart = plot.draw(falsePosition.getXL(), falsePosition.getXU(), falsePosition.getXR());
+                            break;
+                        case "Fixed point":
+                            this.setExpression(myInput.getText() + "+x");
+                            FixedPoint fixedPoint = new FixedPoint(initial_guess[0], num_of_iteration, eps);
+                            solution = fixedPoint;
+                            LineChart = plot.draw(fixedPoint.get_xR(), fixedPoint.getStart());
+                            break;
+                        case "Newton-Raphson":
+                            NewtonRaphson newtonRaphson = new NewtonRaphson(initial_guess[0], num_of_iteration, eps);
+                            solution = newtonRaphson;
+                            LineChart = plot.draw(newtonRaphson.getValues());
+                            break;
+                        case "Secant Method":
+                            Secant secant = new Secant(initial_guess[0], initial_guess[1], eps, num_of_iteration);
+                            solution = secant;
+                            LineChart = plot.draw(secant.getValues());
+                            break;
+                    }
+
+                    // The Plot
+                    Stage stage = new Stage();
+                    stage.setTitle("Graph");
+                    Scene scene = new Scene(LineChart, 800, 600);
+                    stage.setScene(scene);
+                    stage.show();
+
+                    displayOutputScene(solution.toString());
+                    time.setText(String.valueOf(solution.getTime()));
+                    finalOutput.setText(solution.finalRoot());
+                } catch (IllegalArgumentException error) {
+                    System.out.println("Invalid Input: " + error);
+                    inputWarn4.setTextFill(Color.RED);
+                    myPane.getChildren().remove(inputWarn4);
+                    myPane.getChildren().add(inputWarn4);
                 }
-
-                // The Plot
-                Stage stage = new Stage();
-                stage.setTitle("Graph");
-                Scene scene = new Scene(LineChart, 800, 600);
-                stage.setScene(scene);
-                stage.show();
-
-                displayOutputScene(solution.toString());
-                time.setText(String.valueOf(solution.getTime()));
-                finalOutput.setText(solution.finalRoot());
-            } catch (IllegalArgumentException error) {
-                System.out.println("Invalid Input: " + error);
+            } else {
+                System.out.println("Invalid Input.");
                 inputWarn4.setTextFill(Color.RED);
                 myPane.getChildren().remove(inputWarn4);
                 myPane.getChildren().add(inputWarn4);

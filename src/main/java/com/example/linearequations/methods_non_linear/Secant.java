@@ -21,7 +21,7 @@ public class Secant implements Solve {
     public Secant(double x0, double x1, double conv_level, int itr) {
         this.stringBuilder = new StringBuilder("Secant Method\n\n");
         this.finalAnswer = new StringBuilder();
-        values = new ArrayList<>(Arrays.asList(0.0, 0.0, 0.0));
+        values = new ArrayList<>(3);
         long start = System.nanoTime();
         secantMethod(x0, x1, conv_level, itr);
         this.time = System.nanoTime() - start;

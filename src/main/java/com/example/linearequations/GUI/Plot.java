@@ -207,10 +207,16 @@ public class Plot {
 
         GetFunctionValue getFunctionValue = new GetFunctionValue();
 
-        double x0 = values.get(0), x1 = values.get(1), xr = values.get(2), val;
+        double x0 = values.get(0), x1 = values.get(1), xr, val;
+        try {
+            xr = values.get(2);
+        } catch (NullPointerException e) {
+            return lineChart;
+        }
         double v = Math.abs(x0) + Math.abs(x1), j = xr - v;
+        // System.out.println("Values: " + x0 + " " + x1 + " " + xr + " " + v);
         while (j < xr + v) {
-            System.out.println("HELLO!");
+            // System.out.println("HELLO!");
             val = getFunctionValue.parseFun(j);
             series1.getData().add(new XYChart.Data<>(j, val));
             series2.getData().add(new XYChart.Data<>(xr, val));

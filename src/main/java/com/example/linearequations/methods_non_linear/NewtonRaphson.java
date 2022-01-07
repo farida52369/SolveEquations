@@ -35,11 +35,11 @@ public class NewtonRaphson implements Solve {
 
     // Function to find the root
     private void newtonRaphson(double x, int itr, double e) {
-        ///new
-        if(derivativeFunc(func(x)) == 0){
-               this.stringBuilder.append("The function doesn't converge. Try another initial guess!!");
+      ///new  
+        if( derivativeFunc(fun,x)==0){
+               this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
                 return;
-        }
+            }
         /////
         double h = BigDecimal.valueOf(func(x) / derivativeFunc(x))
                 .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
@@ -48,12 +48,16 @@ public class NewtonRaphson implements Solve {
         double derivative = 0, val = 0, startX = x;
         while ((Math.abs(h / x) * 100) >= e && i <= itr) {
             derivative = derivativeFunc(x);
-
+            //new
+            if (derivative == 0) {
+                this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+                return;
+            }
+            //
             val = func(x);
             h = BigDecimal.valueOf(val / derivative)
                     .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
             x = BigDecimal.valueOf(x - h).setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
-
             this.stringBuilder.append("Iteration #").append(i).append(": X").append(i).append(" = ")
                     .append(x).append("\nAbsolute Error = ").append(BigDecimal.valueOf((Math.abs(h / x) * 100))
                             .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())

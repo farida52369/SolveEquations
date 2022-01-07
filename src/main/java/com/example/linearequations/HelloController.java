@@ -128,11 +128,6 @@ public class HelloController implements Initializable {
                 break;
             case "Gauss Seidil":
             case "Jacobi Iteration":
-            case "Bisection":
-            case "False-Position":
-            case "Fixed point":
-            case "Newton-Raphson":
-            case "Secant Method":
                 labelWarn1.setTextFill(Color.RED);
                 labelWarn2.setTextFill(Color.RED);
                 labelWarn3.setTextFill(Color.RED);
@@ -163,7 +158,46 @@ public class HelloController implements Initializable {
                 TextFormatter<Double> formatter = new TextFormatter<Double>(filter);
                 epsilon.setTextFormatter(formatter);
                 */
+            case "Bisection":
+            case "False-Position":
+            case "Secant Method":
+                labelWarn1.setTextFill(Color.RED);
+                labelWarn2.setTextFill(Color.RED);
+                labelWarn3.setTextFill(Color.RED);
 
+                initialGuess.setPrefWidth(120);
+                initialGuess.setText("0,0");
+                numOfIteration.setPrefWidth(90);
+                numOfIteration.setText("10");
+                epsilon.setPrefWidth(150);
+                epsilon.setText("0.00001");
+                epsilonLabel.setFont(new Font("System", 35));
+                myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
+                        initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
+                        epsilonLabel, epsilon, labelWarn3);
+                myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
+                        numOfIteration, labelWarn2, numOfIterationLabel,
+                        epsilonLabel, epsilon, labelWarn3);
+                break;
+            case "Fixed point":
+            case "Newton-Raphson":
+                labelWarn1.setTextFill(Color.RED);
+                labelWarn2.setTextFill(Color.RED);
+                labelWarn3.setTextFill(Color.RED);
+
+                initialGuess.setPrefWidth(120);
+                initialGuess.setText("0");
+                numOfIteration.setPrefWidth(90);
+                numOfIteration.setText("10");
+                epsilon.setPrefWidth(150);
+                epsilon.setText("0.00001");
+                epsilonLabel.setFont(new Font("System", 35));
+                myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
+                        initialGuess, labelWarn1, numOfIteration, labelWarn2, numOfIterationLabel,
+                        epsilonLabel, epsilon, labelWarn3);
+                myPane.getChildren().addAll(labelGuess, initialGuess, labelWarn1,
+                        numOfIteration, labelWarn2, numOfIterationLabel,
+                        epsilonLabel, epsilon, labelWarn3);
                 break;
             default:
                 myPane.getChildren().removeAll(labelLU, choiceBoxLU, labelGuess,
@@ -259,6 +293,8 @@ public class HelloController implements Initializable {
                     displayOutputScene(solution.toString());
                     time.setText(String.valueOf(solution.getTime()));
 
+                    // Final Answer Solution Window
+                    displayFinalAnswer(solution.finalRoot());
 
                 } else if (checkConsistency.check(co_eff, b) == 1) {
                     displayOutputScene("Infinite Number Of Solutions!");
@@ -348,8 +384,25 @@ public class HelloController implements Initializable {
                 myPane.getChildren().add(inputWarn4);
             }
         }
+    }
 
-        System.out.println(myInput.getText().replaceAll("\n", " "));
+    private void displayFinalAnswer(String solution) {
+        // The Final Answer
+        Stage stage = new Stage();
+        stage.setTitle("Final Answer");
+
+        TextArea outputLabel = new TextArea();
+        outputLabel.setMinWidth(100);
+        outputLabel.setMinHeight(100);
+        outputLabel.setLayoutX(10);
+        outputLabel.setLayoutY(10);
+        outputLabel.setFont(new Font("System", 17));
+        outputLabel.setText(solution);
+        outputLabel.setEditable(false);
+
+        Scene scene = new Scene(outputLabel, 400, 350);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void displayOutputScene(String solution) throws IOException {

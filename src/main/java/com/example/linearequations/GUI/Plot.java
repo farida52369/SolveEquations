@@ -153,19 +153,24 @@ public class Plot {
         XYChart.Series<Number, Number> series3 = new XYChart.Series<>();  // XR
         series1.setName("f(x)");
 
-        double c_value = values[0], slope = values[1], x = values[2], startX = values[3],
-                j = Math.min(x, startX), val;
+        try {
+            double c_value = values[0], slope = values[1], x = values[2], startX = values[3],
+                    j = Math.min(x, startX), val;
 
-        double v = (Math.abs(x) + Math.abs(startX));
-        j -= v;
-        while (j < Math.max(x, startX) + v) {
-            // System.out.println("HELLO!");
-            val = getFunctionValue.parseFun(j);
-            series1.getData().add(new XYChart.Data<>(j, val));
-            series2.getData().add(new XYChart.Data<>(j, slope * j + c_value));
-            series3.getData().add(new XYChart.Data<>(x, val));
-            j += v / 300.0;
+            double v = (Math.abs(x) + Math.abs(startX));
+            j -= v;
+            while (j < Math.max(x, startX) + v) {
+                // System.out.println("HELLO!");
+                val = getFunctionValue.parseFun(j);
+                series1.getData().add(new XYChart.Data<>(j, val));
+                series2.getData().add(new XYChart.Data<>(j, slope * j + c_value));
+                series3.getData().add(new XYChart.Data<>(x, val));
+                j += v / 300.0;
+            }
+        } catch (NullPointerException e) {
+            return lineChart;
         }
+
         Platform.runLater(() ->
                 series1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;")
         );

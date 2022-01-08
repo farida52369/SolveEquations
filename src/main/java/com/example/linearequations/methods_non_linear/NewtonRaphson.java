@@ -37,7 +37,7 @@ public class NewtonRaphson implements Solve {
     private void newtonRaphson(double x, int itr, double e) {
         ///new
         if (derivativeFunc(x) == 0) {
-            this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+            this.stringBuilder.append("The Function Diverge!\nTry better initial guess :))");
             return;
         }
 

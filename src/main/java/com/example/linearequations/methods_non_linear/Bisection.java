@@ -38,7 +38,7 @@ public class Bisection implements Solve {
         }
         /// new
         this.stringBuilder.append("The Rule\n").append("Xr = (Xl + Xu) / 2")
-                .append("\n The condition f(Xl) * f(Xu)<0");
+                .append("\nThe condition f(Xl) * f(Xu)<0");
         this.stringBuilder.append("\n\n------------------------------------------\n\n");
         //
 

@@ -37,7 +37,10 @@ public class Secant implements Solve {
             this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
             return;
         }
-
+        
+        this.stringBuilder.append("The Rule:").append("\nIteration #i: xi+1=g(xi)=f(xi)+xi")
+            .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100")
+            .append("\n------------------------------------------------\n\n");
         ////
         // For the plot
         this.values.add(x0);
@@ -52,10 +55,10 @@ public class Secant implements Solve {
                 x2 = BigDecimal.valueOf(x1 - (expression(x1) * (x0 - x1)) / (expression(x0) - expression(x1)))
                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
 
-                // The Steps
-                this.stringBuilder.append("Iteration #").append(iterations + 1).append(": Xn-1= ")
-                        .append(x0).append(", xn= ").append(x1).append(", xn+1= ").append(x2)
-                        .append("\nApproximate Error= ").append(BigDecimal.valueOf(Math.abs(x2 - x1))
+                // The Steps//Newwwwwwwwwwwwwwwwwww
+                this.stringBuilder.append("Iteration #").append(iterations + 1).append(": Xi-1= ")
+                        .append(x0).append(", xi= ").append(x1).append(", xi+1= ").append(x2)
+                        .append("\nRelative Approximate Error= ").append(BigDecimal.valueOf(Math.abs(x2 - x1))
                                 .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n");
                 this.stringBuilder.append("\n------------------------------------------------\n\n");

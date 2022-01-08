@@ -52,6 +52,12 @@ public class Secant implements Solve {
 
         if (check < 0) {
             do {
+                  //////////////new
+              if((expression(x0) - expression(x1))==0){
+                        this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+                         return;
+                    }
+               
                 x2 = BigDecimal.valueOf(x1 - (expression(x1) * (x0 - x1)) / (expression(x0) - expression(x1)))
                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
 

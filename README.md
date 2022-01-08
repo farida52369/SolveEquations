@@ -29,8 +29,6 @@ For Non-Linear Equations:
 
 ![image](https://drive.google.com/uc?export=view&id=1PrbHONJA2K38TS2NCU2U7h7ydXivfDA8)
 
-![image](https://drive.google.com/uc?export=view&id=15rxFsa4oUpBFnU2HfucVggfB02twT2MY)
-
 ## Graphs - Non-Linear Methods
 ![image](https://drive.google.com/uc?export=view&id=1fcxrrWfbsqHgKz71CkJSqnlcQFg7XYG7)
 
@@ -42,9 +40,4 @@ For Non-Linear Equations:
 
 ![image](https://drive.google.com/uc?export=view&id=1-Br2pUDAWrYifoavYqA0Z-W_nrH8dKEB)
 
-## Steps Window
-![image](https://drive.google.com/uc?export=view&id=1N5Hs21DTvheWijKcjA_VKKkIya7RpqZj)
-
-## Final Answer Window
-![image](https://drive.google.com/uc?export=view&id=1U95_bttYhYuCuu41LTtIf-1U-1NpvEp7)
 

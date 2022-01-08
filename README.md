@@ -31,10 +31,16 @@ For Non-Linear Equations:
 
 ![image](https://drive.google.com/uc?export=view&id=15rxFsa4oUpBFnU2HfucVggfB02twT2MY)
 
-## Graphs
+## Graphs - Non-Linear Methods
 ![image](https://drive.google.com/uc?export=view&id=1fcxrrWfbsqHgKz71CkJSqnlcQFg7XYG7)
 
+![image](https://drive.google.com/uc?export=view&id=1JuL8JJci_U_OCub8FsLcF8D0tRtCcQeQ)
+
 ![image](https://drive.google.com/uc?export=view&id=1Lr8mFA-LQhpAuE8n-pWd48lKklYyRR8L)
+
+![image](https://drive.google.com/uc?export=view&id=1EidAtj9u9DJ4MnUXo-88_bYzrBbMJNdP)
+
+![image](https://drive.google.com/uc?export=view&id=1-Br2pUDAWrYifoavYqA0Z-W_nrH8dKEB)
 
 ## Steps Window
 ![image](https://drive.google.com/uc?export=view&id=1N5Hs21DTvheWijKcjA_VKKkIya7RpqZj)

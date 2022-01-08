@@ -65,7 +65,7 @@ public class HelloController implements Initializable {
     TextField initialGuess = DrawUI.addTextField(155, 178);
 
     Label numOfIterationLabel = DrawUI.addLabel("# of Iteration:", 20, 300, 180);
-    Label labelWarn2 = DrawUI.addLabel("* value of # Iteration\ndefault:[# iteration=10]",
+    Label labelWarn2 = DrawUI.addLabel("* value of # Iteration\ndefault:[# iteration=50]",
             11, 320, 215);
     TextField numOfIteration = DrawUI.addTextField(450, 175);
 

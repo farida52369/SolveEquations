@@ -211,9 +211,10 @@ public class Plot {
         double x0 = values.get(0), x1 = values.get(1), xr, val;
         try {
             xr = values.get(2);
-        } catch (NullPointerException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             return lineChart;
         }
+
         double v = Math.abs(x0) + Math.abs(x1), j = xr - v;
         // System.out.println("Values: " + x0 + " " + x1 + " " + xr + " " + v);
         while (j < xr + v) {

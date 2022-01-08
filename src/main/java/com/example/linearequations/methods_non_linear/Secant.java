@@ -82,8 +82,6 @@ public class Secant implements Solve {
 
         // For the plot
         this.values.add(xr);
-
-
     }
 
     public List<Double> getValues() {

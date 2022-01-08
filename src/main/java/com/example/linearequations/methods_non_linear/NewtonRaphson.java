@@ -36,9 +36,9 @@ public class NewtonRaphson implements Solve {
     // Function to find the root
     private void newtonRaphson(double x, int itr, double e) {
         ///new
-        if( derivativeFunc(x)==0){
-               this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
-               return;
+        if (derivativeFunc(x) == 0) {
+            this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+            return;
         }
 
         /////

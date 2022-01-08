@@ -1,8 +1,5 @@
 package com.example.linearequations.checks;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class CheckConsistency {
 
     public int check(double[][] tempMatrix, double[] tempB) {

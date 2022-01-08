@@ -3,7 +3,6 @@ package com.example.linearequations.checks;
 import com.example.linearequations.HelloController;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-import net.objecthunter.exp4j.ValidationResult;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

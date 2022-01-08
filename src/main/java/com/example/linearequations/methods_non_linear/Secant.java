@@ -37,8 +37,9 @@ public class Secant implements Solve {
             return;
         }
 
-        this.stringBuilder.append("The Rule:").append("\nIteration #i: xi+1= xi - ((f(xi)*((xi-1)-(xi)))/(f(xi-1)-f(xi)))")
-                .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100")
+        this.stringBuilder.append("The Rule:")
+                .append("\nIteration #i: xi + 1= xi - ((f(xi) * ((xi-1) - (xi)))/(f(xi - 1) - f(xi)))")
+                .append("\nRelative Approximate Error= |((xi + 1) - (xi))/(xi + 1)| * 100")
                 .append("\n------------------------------------------------\n\n");
         ////
         // For the plot

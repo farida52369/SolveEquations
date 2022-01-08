@@ -36,8 +36,9 @@ public class Bisection implements Solve {
             this.stringBuilder.append("You have not assumed the range of Xl and Xu right :)");
             return;
         }
-        ///new
-        this.stringBuilder.append("The Rule\n").append("Xr=(Xl+Xu)/2").append("\n The condition f(Xl)*f(Xu)<0");
+        /// new
+        this.stringBuilder.append("The Rule\n").append("Xr = (Xl + Xu) / 2")
+                .append("\n The condition f(Xl) * f(Xu)<0");
         this.stringBuilder.append("\n\n------------------------------------------\n\n");
         //
 
@@ -53,7 +54,7 @@ public class Bisection implements Solve {
             //find root
             xr = BigDecimal.valueOf((xu + xl) / 2).setScale(precision, RoundingMode.HALF_UP).doubleValue();
 
-         //for printing the steps
+            //for printing the steps
             //new
             this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("\nXl = ").append(xl).append(" , Xu = ").append(xu)
                     .append("\nXr=")

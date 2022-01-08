@@ -37,7 +37,7 @@ public class FixedPoint implements Solve {
         double p, xOld = 0;
         
         //New
-        this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi+1= g(xi) = f(xi) + xi")
+        this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi + 1= g(xi) = f(xi) + xi")
             .append("\nRelative Approximate Error= |((xi+1) - (xi)) / (xi+1)| * 100").append("\n-------------------------------------\n\n");
         //p = g(fun,x);
         while (i <= itr) {

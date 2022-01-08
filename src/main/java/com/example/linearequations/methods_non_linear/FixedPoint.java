@@ -59,9 +59,10 @@ public class FixedPoint implements Solve {
                 x = p;
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append(x).append("\nRelative Approximate Error= ").append(
-                                BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
+                                BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");
+                xOld=x;
                 break;
             }
             xOld = x;
@@ -70,8 +71,8 @@ public class FixedPoint implements Solve {
 
         // Final Answer
         xR = x;  // For the plot
-        this.stringBuilder.append("After Fixed Point Method The final root = ").append(x);
-        this.finalAnswer.append("The value of the final root = ").append(x);
+        this.stringBuilder.append("After Fixed Point Method The final root = ").append(xOld);
+        this.finalAnswer.append("The value of the final root = ").append(xOld);
     }
 
     public double getStart() {

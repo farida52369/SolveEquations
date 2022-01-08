@@ -37,8 +37,8 @@ public class Secant implements Solve {
             this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
             return;
         }
-        
-        this.stringBuilder.append("The Rule:").append("\nIteration #i: xi+1=g(xi)=f(xi)+xi")
+        //newwwwwwwwwwwwww
+        this.stringBuilder.append("The Rule:").append("\nIteration #i: xi+1= xi - ((f(xi)*((xi-1)-(xi)))/(f(xi-1)-f(xi)))")
             .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100")
             .append("\n------------------------------------------------\n\n");
         ////

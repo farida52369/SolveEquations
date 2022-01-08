@@ -35,15 +35,19 @@ public class FixedPoint implements Solve {
 
         int i = 0;
         double p, xOld = 0;
+        
+        //Newwwwwwwwwwwwwww
+        this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi+1= g(xi)=f(xi)+xi")
+            .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100").append("\n-------------------------------------\n\n");
         //p = g(fun,x);
         while (i <= itr) {
             p = g(x);
             if (i == 0) {
-                this.stringBuilder.append("Iteration #").append(i).append(": Xn= ").append(x)
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
-                this.stringBuilder.append("Iteration #").append(i).append(": Xn= ").append(x)
-                        .append("\nApproximate Error= ").append(
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                        .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");
@@ -51,8 +55,8 @@ public class FixedPoint implements Solve {
             i++;
             if (i <= itr && (Math.abs((p - x) / p) * 100) < epsilon) {
                 x = p;
-                this.stringBuilder.append("Iteration ").append(i).append(": xn= ")
-                        .append(x).append(", Approximate Error= ").append(
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                        .append(x).append(", Relative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");

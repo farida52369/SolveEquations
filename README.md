@@ -1,9 +1,11 @@
 # Solve Equations 
 
-Solving Linear and Non-Linear Equations Program developed using:
+## Solving Linear and Non-Linear Equations Program developed using:
 - Java - JavaFX
 
-Supports Methods for Linear Equations:
+## Supports Methods 
+
+For Linear Equations:
 - Gauss Elimination
 - Gauss Jordan
 - LU Decomposition
@@ -13,10 +15,11 @@ Supports Methods for Linear Equations:
 - Gauss Seidil
 - Jacobi Iteration
 
-Methods for Non-Linear Equations:
+For Non-Linear Equations:
 - Bisection
 - False-Position
 - Fixed point
 - Newton-Raphson
 - Secant Method
 
+## Designed the architecture of the application using MVC

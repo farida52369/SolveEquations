@@ -33,7 +33,7 @@ public class Bisection implements Solve {
         int iteration = 1;
         int precision = HelloController.getPre();
         if (func.parseFun(xl) * func.parseFun(xu) >= 0) {
-            this.stringBuilder.append("You have not assumed the range of a and b right :)");
+            this.stringBuilder.append("You have not assumed the range of Xl and Xu right :)");
             return;
         }
         ///new
@@ -56,8 +56,8 @@ public class Bisection implements Solve {
          //for printing the steps
             //new
             this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("\nXl = ").append(xl).append(" , Xu = ").append(xu)
-                    .append("\nxr=")
-                    .append(xr).append(", func(xr)= ").append(func.parseFun(xr)).append("\n");
+                    .append("\nXr=")
+                    .append(xr).append(", func(Xr)= ").append(func.parseFun(xr)).append("\n");
             final BigDecimal bigDecimal = BigDecimal.valueOf(Math.abs(((xr - xrOld) / xr) * 100));
             this.stringBuilder.append("The epsilon of iteration #").append(iteration).append(" = ")
                     .append(bigDecimal.setScale(precision, RoundingMode.UP).doubleValue());

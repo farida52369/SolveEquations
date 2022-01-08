@@ -60,8 +60,10 @@ public class FixedPoint implements Solve {
             if (i <= itr && (Math.abs((p - x) / p) * 100) < epsilon) {
                 x = BigDecimal.valueOf(Math.abs(p))
                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
-                        .append(x).append("\nRelative Approximate Error= ").append(
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                        .append(BigDecimal.valueOf(Math.abs(x))
+                                .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
+                        .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");

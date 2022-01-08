@@ -24,6 +24,7 @@ For Non-Linear Equations:
 
 ## Designed the architecture of the application using MVC
 
+
 ## UI Sample Runs 
 ![image](https://drive.google.com/uc?export=view&id=1fcxrrWfbsqHgKz71CkJSqnlcQFg7XYG7)
 

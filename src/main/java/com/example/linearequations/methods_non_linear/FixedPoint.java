@@ -44,7 +44,7 @@ public class FixedPoint implements Solve {
             // System.out.println("HELLO: " + HelloController.getExpression());
             p = g(x);
             if (i == 0) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)

@@ -40,6 +40,10 @@ public class NewtonRaphson implements Solve {
             this.stringBuilder.append("The Function Diverge!\nTry better initial guess :))");
             return;
         }
+        
+          this.stringBuilder.append("The Rule: \n").append("Iteration #i : x(i+1) = xi-(f(xi)/f'(xi))\n").
+                append("Relative Approximate Error = |((xi+1)-(xi))/(xi+1))|*100\n")
+                .append("\n\n-------------------------------\n\n");
 
         /////
         double h = BigDecimal.valueOf(func(x) / derivativeFunc(x))
@@ -59,8 +63,8 @@ public class NewtonRaphson implements Solve {
             h = BigDecimal.valueOf(val / derivative)
                     .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
             x = BigDecimal.valueOf(x - h).setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
-            this.stringBuilder.append("Iteration #").append(i).append(": X").append(i).append(" = ")
-                    .append(x).append("\nAbsolute Error = ").append(BigDecimal.valueOf((Math.abs(h / x) * 100))
+           this.stringBuilder.append("Iteration #").append(i).append(": Xi").append(" = ").append(x).append(" , Xi+1 = ").append((x-(func(x) / derivativeFunc(x))))
+                    .append("\nRelative Approximate Error = ").append(BigDecimal.valueOf((Math.abs(h / x) * 100))
                             .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                     .append("\n\n-------------------------------\n\n");
             i++;

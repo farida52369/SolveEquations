@@ -41,7 +41,7 @@ public class Secant implements Solve {
                 .append("\nIteration #i: xi + 1= xi - ((f(xi) * ((xi-1) - (xi)))/(f(xi - 1) - f(xi)))")
                 .append("\nRelative Approximate Error= |((xi + 1) - (xi))/(xi + 1)| * 100")
                 .append("\n------------------------------------------------\n\n");
-        ////
+        //
         // For the plot
         this.values.add(x0);
         this.values.add(x1);
@@ -82,6 +82,8 @@ public class Secant implements Solve {
 
         // For the plot
         this.values.add(xr);
+
+
     }
 
     public List<Double> getValues() {

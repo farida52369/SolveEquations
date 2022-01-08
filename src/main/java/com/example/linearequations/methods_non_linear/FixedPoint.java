@@ -48,9 +48,7 @@ public class FixedPoint implements Solve {
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
-                        .append(BigDecimal.valueOf(Math.abs(x))
-                        .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
@@ -58,26 +56,23 @@ public class FixedPoint implements Solve {
             }
             i++;
             if (i <= itr && (Math.abs((p - x) / p) * 100) < epsilon) {
-                x = BigDecimal.valueOf(Math.abs(p))
-                        .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
-                        .append(BigDecimal.valueOf(Math.abs(x))
-                                .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
-                        .append("\nRelative Approximate Error= ").append(
-                                BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
+                x = p;
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
+                        .append(x).append("\nRelative Approximate Error= ").append(
+                                BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");
+                xOld = x;
                 break;
             }
             xOld = x;
-            x =  BigDecimal.valueOf(Math.abs(p))
-                    .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
+            x = p;
         }
 
         // Final Answer
         xR = x;  // For the plot
-        this.stringBuilder.append("After Fixed Point Method The final root = ").append(x);
-        this.finalAnswer.append("The value of the final root = ").append(x);
+        this.stringBuilder.append("After Fixed Point Method The final root = ").append(xOld);
+        this.finalAnswer.append("The value of the final root = ").append(xOld);
     }
 
     public double getStart() {

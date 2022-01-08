@@ -50,7 +50,7 @@ public class Secant implements Solve {
         double x2;
         double check = expression(x0) * expression(x1);
 
-        if (check < 0) {
+       
             do {
                 // new
                 if ((expression(x0) - expression(x1)) == 0) {
@@ -86,9 +86,7 @@ public class Secant implements Solve {
             // For the plot
             this.values.add(xr);
 
-        } else {
-            this.stringBuilder.append("In this interval there is no root :))");
-        }
+        
     }
 
     public List<Double> getValues() {

@@ -33,12 +33,14 @@ public class FalsePosition implements Solve {
         GetFunctionValue f = new GetFunctionValue();
         int iteration = 1;
         int precision = HelloController.getPre();
-
+///new
         if (f.parseFun(xl) * f.parseFun(xu) >= 0) {
-            this.stringBuilder.append("You have not assumed the range of a and b right :))");
+            this.stringBuilder.append("You have not assumed the range of xl and xu right :))");
             return;
         }
-
+        this.stringBuilder.append("The Rule\n").append("Xr=(Xl - ((xu - xl) * f(Xl)) / (f(Xu) - f(Xl)))").append("\n The condition f(Xl)*f(Xu)<0");
+        this.stringBuilder.append("\n\n------------------------------------------\n\n");
+////////
         // For the plot
         this.xL.add(xl);
         this.xU.add(xu);
@@ -53,12 +55,16 @@ public class FalsePosition implements Solve {
                     .setScale(precision, RoundingMode.HALF_UP).doubleValue();
 
             //for printing the steps
-            this.stringBuilder.append("Iteration #").append(iteration).append(" : ")
-                    .append("Xr=").append(xr).append(", and f(Xr)= ").append(f.parseFun(xr)).append("\n");
-            BigDecimal bigDecimal = BigDecimal.valueOf(Math.abs(((xr - xrOld) / xr) * 100));
+           ////new
+            this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("\nXl = ").append(xl).append(" , Xu = ").append(xu)
+                    .append("\nxr=")
+                    .append(xr).append(", func(xr)= ").append(f.parseFun(xr)).append("\n");
+            final BigDecimal bigDecimal = BigDecimal.valueOf(Math.abs(((xr - xrOld) / xr) * 100));
             this.stringBuilder.append("The epsilon of iteration #").append(iteration).append(" = ")
-                    .append(bigDecimal.setScale(precision, RoundingMode.UP).doubleValue()).append("\n");
-            this.stringBuilder.append("\n----------------------------------------------------------------\n\n");
+                    .append(bigDecimal.setScale(precision, RoundingMode.UP).doubleValue());
+
+            this.stringBuilder.append("\n\n------------------------------------------\n\n");
+            ///
             iteration++;
             if (f.parseFun(xr) == 0) {
                 break;

@@ -38,16 +38,17 @@ public class FixedPoint implements Solve {
 
         //New
         this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi + 1= g(xi) = f(xi) + xi")
-                .append("\nRelative Approximate Error= |((xi+1) - (xi)) / (xi+1)| * 100").append("\n-------------------------------------\n\n");
+                .append("\nRelative Approximate Error= |((xi+1) - (xi)) / (xi+1)| * 100")
+                .append("\n-------------------------------------\n\n");
         //p = g(fun,x);
         while (i <= itr) {
             // System.out.println("HELLO: " + HelloController.getExpression());
             p = g(x);
             if (i == 0) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
@@ -56,8 +57,8 @@ public class FixedPoint implements Solve {
             i++;
             if (i <= itr && (Math.abs((p - x) / p) * 100) < epsilon) {
                 x = p;
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
-                        .append(x).append(", Relative Approximate Error= ").append(
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
+                        .append(x).append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\n-------------------------------------\n\n");

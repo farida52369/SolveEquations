@@ -335,14 +335,7 @@ public class HelloController implements Initializable {
                             LineChart = plot.draw(secant.getValues());
                             break;
                     }
-
-                    // The Plot
-                    Stage stage = new Stage();
-                    stage.setTitle("Graph");
-                    Scene scene = new Scene(LineChart, 800, 600);
-                    stage.setScene(scene);
-                    stage.show();
-
+                    displayThePlot();
                     displayOutputScene(solution.toString());
                     time.setText(String.valueOf(solution.getTime()));
                     finalOutput.setText(solution.finalRoot());
@@ -359,6 +352,15 @@ public class HelloController implements Initializable {
                 myPane.getChildren().add(inputWarn4);
             }
         }
+    }
+
+    private void displayThePlot() {
+        // The Plot
+        Stage stage = new Stage();
+        stage.setTitle("Graph");
+        Scene scene = new Scene(LineChart, 800, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void displayFinalAnswer(String solution) {

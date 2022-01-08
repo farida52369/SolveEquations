@@ -47,7 +47,7 @@ public class FixedPoint implements Solve {
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())

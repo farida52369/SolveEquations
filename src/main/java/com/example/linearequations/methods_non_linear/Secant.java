@@ -7,7 +7,6 @@ import com.example.linearequations.checks.GetFunctionValue;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Secant implements Solve {
@@ -33,14 +32,14 @@ public class Secant implements Solve {
 
     private void secantMethod(double x0, double x1, double conv_level, int itr) {
         //new
-        if((expression(x0) - expression(x1))==0){
+        if ((expression(x0) - expression(x1)) == 0) {
             this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
             return;
         }
-        //newwwwwwwwwwwwww
+
         this.stringBuilder.append("The Rule:").append("\nIteration #i: xi+1= xi - ((f(xi)*((xi-1)-(xi)))/(f(xi-1)-f(xi)))")
-            .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100")
-            .append("\n------------------------------------------------\n\n");
+                .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100")
+                .append("\n------------------------------------------------\n\n");
         ////
         // For the plot
         this.values.add(x0);
@@ -52,16 +51,16 @@ public class Secant implements Solve {
 
         if (check < 0) {
             do {
-                  //////////////new
-              if((expression(x0) - expression(x1))==0){
-                        this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
-                         return;
-                    }
-               
+                // new
+                if ((expression(x0) - expression(x1)) == 0) {
+                    this.stringBuilder.append("\nThe Function Diverge!\nTry better initial guess :))");
+                    return;
+                }
+
                 x2 = BigDecimal.valueOf(x1 - (expression(x1) * (x0 - x1)) / (expression(x0) - expression(x1)))
                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
 
-                // The Steps//Newwwwwwwwwwwwwwwwwww
+                // The Steps
                 this.stringBuilder.append("Iteration #").append(iterations + 1).append(": Xi-1= ")
                         .append(x0).append(", xi= ").append(x1).append(", xi+1= ").append(x2)
                         .append("\nRelative Approximate Error= ").append(BigDecimal.valueOf(Math.abs(x2 - x1))

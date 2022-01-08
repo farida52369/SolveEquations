@@ -172,7 +172,7 @@ public class HelloController implements Initializable {
 
         initialGuess.setPrefWidth(120);
         numOfIteration.setPrefWidth(90);
-        numOfIteration.setText("10");
+        numOfIteration.setText("50");
         epsilon.setPrefWidth(150);
         epsilon.setText("0.00001");
         epsilonLabel.setFont(new Font("System", 35));
@@ -291,6 +291,7 @@ public class HelloController implements Initializable {
             if (equ.length == 2 && (equ[1].equals("0") || equ[1].equals("0.0"))) {
                 try {
                     this.setExpression(equ[0]);
+                    // System.out.println("Expression: " + getExpression());
                     Expression expression = new ExpressionBuilder(getExpression())
                             .variable("x")
                             .build();
@@ -300,8 +301,9 @@ public class HelloController implements Initializable {
 
                     double[] initial_guess = new double[2];
                     for (int i = 0; i < 2; i++)
-                        if (val.length > i)
+                        if (val.length > i) {
                             initial_guess[i] = Double.parseDouble(val[i]);
+                        }
                     int num_of_iteration = Integer.parseInt(numOfIteration.getText());
                     double eps = Double.parseDouble(epsilon.getText());
 
@@ -319,9 +321,11 @@ public class HelloController implements Initializable {
                             LineChart = plot.draw(falsePosition.getXL(), falsePosition.getXU(), falsePosition.getXR());
                             break;
                         case "Fixed point":
-                            this.setExpression(myInput.getText() + "+x");
+                            this.setExpression(equ[0] + "+x");
+                            // System.out.println("Expression In Switch: " + getExpression());
                             FixedPoint fixedPoint = new FixedPoint(initial_guess[0], num_of_iteration, eps);
                             solution = fixedPoint;
+                            // System.out.println("Expression In After Operation: " + getExpression());
                             LineChart = plot.draw(fixedPoint.get_xR(), fixedPoint.getStart());
                             break;
                         case "Newton-Raphson":

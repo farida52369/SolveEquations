@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Linear Equations Solver!");
+            stage.setTitle("Equations Solver!");
 
             // For Image as an icon
             Image icon = new Image(Objects.requireNonNull(HelloApplication.class.getResourceAsStream("icon.jpg")));

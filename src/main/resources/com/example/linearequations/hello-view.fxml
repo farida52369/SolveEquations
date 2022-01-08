@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.linearequations.HelloController">
    <children>
-      <Label layoutX="240.0" layoutY="14.0" text="Solving Linear Equations" textFill="#ae0909">
+      <Label layoutX="272.0" layoutY="14.0" text="Solving Equations" textFill="#ae0909">
          <font>
             <Font size="30.0" />
          </font>
@@ -32,7 +32,7 @@
             <Font size="22.0" />
          </font>
       </TextField>
-      <Line endX="557.0" endY="62.5" fill="#ae0909" layoutX="48.0" layoutY="-11.0" startX="196.5" startY="62.5" stroke="#ae0909" strokeWidth="2.0" />
+      <Line endX="477.0" endY="62.5" fill="#ae0909" layoutX="69.0" layoutY="-13.0" startX="196.5" startY="62.5" stroke="#ae0909" strokeWidth="2.0" />
       <Label layoutX="75.0" layoutY="311.0" text="Input Equations:">
          <font>
             <Font size="22.0" />

@@ -36,11 +36,12 @@ public class FixedPoint implements Solve {
         int i = 0;
         double p, xOld = 0;
         
-        //Newwwwwwwwwwwwwww
-        this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi+1= g(xi)=f(xi)+xi")
-            .append("\nRelative Approximate Error= |((xi+1)-(xi))/(xi+1)|*100").append("\n-------------------------------------\n\n");
+        //New
+        this.stringBuilder.append("The Rule:\n").append("Iteration #i: xi+1= g(xi) = f(xi) + xi")
+            .append("\nRelative Approximate Error= |((xi+1) - (xi)) / (xi+1)| * 100").append("\n-------------------------------------\n\n");
         //p = g(fun,x);
         while (i <= itr) {
+            // System.out.println("HELLO: " + HelloController.getExpression());
             p = g(x);
             if (i == 0) {
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")

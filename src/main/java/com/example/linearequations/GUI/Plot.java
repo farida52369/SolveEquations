@@ -208,22 +208,23 @@ public class Plot {
         series1.setName("f(x)");
 
 
-        double x0 = values.get(0), x1 = values.get(1), xr, val;
         try {
+            double x0 = values.get(0), x1 = values.get(1), xr, val;
             xr = values.get(2);
+            double v = Math.abs(x0) + Math.abs(x1), j = xr - v;
+            // System.out.println("Values: " + x0 + " " + x1 + " " + xr + " " + v);
+            while (j < xr + v) {
+                // System.out.println("HELLO!");
+                val = getFunctionValue.parseFun(j);
+                series1.getData().add(new XYChart.Data<>(j, val));
+                series2.getData().add(new XYChart.Data<>(xr, val));
+                j += v / 300.0;
+            }
         } catch (IndexOutOfBoundsException | NullPointerException e) {
             return lineChart;
         }
 
-        double v = Math.abs(x0) + Math.abs(x1), j = xr - v;
-        // System.out.println("Values: " + x0 + " " + x1 + " " + xr + " " + v);
-        while (j < xr + v) {
-            // System.out.println("HELLO!");
-            val = getFunctionValue.parseFun(j);
-            series1.getData().add(new XYChart.Data<>(j, val));
-            series2.getData().add(new XYChart.Data<>(xr, val));
-            j += v / 300.0;
-        }
+
         Platform.runLater(() ->
                 series1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;")
         );

@@ -48,7 +48,9 @@ public class FixedPoint implements Solve {
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append("\n-------------------------------------\n\n");
             } else if (i >= 1) {
-                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
+                this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ")
+                        .append(BigDecimal.valueOf(Math.abs(x))
+                        .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
                         .append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / x) * 100)
                                         .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue())
@@ -56,7 +58,8 @@ public class FixedPoint implements Solve {
             }
             i++;
             if (i <= itr && (Math.abs((p - x) / p) * 100) < epsilon) {
-                x = p;
+                x = BigDecimal.valueOf(Math.abs(p))
+                        .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
                 this.stringBuilder.append("Iteration #").append(i).append(": x").append(i).append("= ").append(x)
                         .append(x).append("\nRelative Approximate Error= ").append(
                                 BigDecimal.valueOf(Math.abs((xOld - x) / xOld) * 100)
@@ -65,7 +68,8 @@ public class FixedPoint implements Solve {
                 break;
             }
             xOld = x;
-            x = p;
+            x =  BigDecimal.valueOf(Math.abs(p))
+                    .setScale(HelloController.getPre(), RoundingMode.HALF_UP).doubleValue();
         }
 
         // Final Answer

@@ -36,6 +36,10 @@ public class Bisection implements Solve {
             this.stringBuilder.append("You have not assumed the range of a and b right :)");
             return;
         }
+        ///new
+        this.stringBuilder.append("The Rule\n").append("Xr=(Xl+Xu)/2").append("\n The condition f(Xl)*f(Xu)<0");
+        this.stringBuilder.append("\n\n------------------------------------------\n\n");
+        //
 
         // For the plot
         this.xL.add(xl);
@@ -49,12 +53,15 @@ public class Bisection implements Solve {
             //find root
             xr = BigDecimal.valueOf((xu + xl) / 2).setScale(precision, RoundingMode.HALF_UP).doubleValue();
 
-            //for printing the steps
-            this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("xr=")
+         //for printing the steps
+            //new
+            this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("\nXl = ").append(xl).append(" , Xu = ").append(xu)
+                    .append("\nxr=")
                     .append(xr).append(", func(xr)= ").append(func.parseFun(xr)).append("\n");
             final BigDecimal bigDecimal = BigDecimal.valueOf(Math.abs(((xr - xrOld) / xr) * 100));
             this.stringBuilder.append("The epsilon of iteration #").append(iteration).append(" = ")
                     .append(bigDecimal.setScale(precision, RoundingMode.UP).doubleValue());
+
             this.stringBuilder.append("\n\n------------------------------------------\n\n");
 
             iteration++;

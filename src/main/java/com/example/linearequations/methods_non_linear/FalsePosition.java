@@ -33,14 +33,14 @@ public class FalsePosition implements Solve {
         GetFunctionValue f = new GetFunctionValue();
         int iteration = 1;
         int precision = HelloController.getPre();
-///new
+
         if (f.parseFun(xl) * f.parseFun(xu) >= 0) {
             this.stringBuilder.append("You have not assumed the range of xl and xu right :))");
             return;
         }
         this.stringBuilder.append("The Rule\n").append("Xr=(Xl - ((xu - xl) * f(Xl)) / (f(Xu) - f(Xl)))").append("\n The condition f(Xl)*f(Xu)<0");
         this.stringBuilder.append("\n\n------------------------------------------\n\n");
-////////
+
         // For the plot
         this.xL.add(xl);
         this.xU.add(xu);
@@ -55,7 +55,7 @@ public class FalsePosition implements Solve {
                     .setScale(precision, RoundingMode.HALF_UP).doubleValue();
 
             //for printing the steps
-           ////new
+            ////new
             this.stringBuilder.append("Iteration #").append(iteration).append(": ").append("\nXl = ").append(xl).append(" , Xu = ").append(xu)
                     .append("\nxr=")
                     .append(xr).append(", func(xr)= ").append(f.parseFun(xr)).append("\n");

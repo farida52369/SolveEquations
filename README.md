@@ -1,9 +1,9 @@
 # Solve Equations 
 
-## Solving Linear and Non-Linear Equations Program developed using:
+**Solving Linear and Non-Linear Equations Program developed using:**
 - Java - JavaFX
 
-## Support Methods 
+**Support Methods** 
 
 For Linear Equations:
 - Gauss Elimination
@@ -22,14 +22,14 @@ For Non-Linear Equations:
 - Newton-Raphson
 - Secant Method
 
-## Designed the architecture of the application using MVC
+**Designed the architecture of the application using MVC**
 
-## UI Sample Runs 
+**UI Sample Runs**
 ![image](https://drive.google.com/uc?export=view&id=10GOVE9RtoZb3OCPfCyGpVTt1L8-Qy0_I)
 
 ![image](https://drive.google.com/uc?export=view&id=1PrbHONJA2K38TS2NCU2U7h7ydXivfDA8)
 
-## Graphs - Non-Linear Methods
+**Graphs - Non-Linear Methods**
 ![image](https://drive.google.com/uc?export=view&id=1fcxrrWfbsqHgKz71CkJSqnlcQFg7XYG7)
 
 ![image](https://drive.google.com/uc?export=view&id=1JuL8JJci_U_OCub8FsLcF8D0tRtCcQeQ)
